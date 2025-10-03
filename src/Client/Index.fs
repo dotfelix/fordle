@@ -5,21 +5,23 @@ open SAFE
 open Shared
 
 type Model = {
-    Todos: RemoteData<Todo list>
-    Input: string
+    Attempt: int
+    Rows: string list list
 }
 
-type Msg =
-    | SetInput of string
-    | LoadTodos of ApiCall<unit, Todo list>
-    | SaveTodo of ApiCall<string, Todo list>
-
-let todosApi = Api.makeProxy<ITodosApi> ()
-
-let init () = 0, Cmd.none
+let init () =
+    let initailState = {
+        Attempt = 1
+        Rows = List.replicate 6 (List.replicate 5 "" )
+    }
+    initailState, Cmd.none
 
 let update msg model =
-    0, Cmd.none
+    let updateState ={
+        Attempt = model.Attempt
+        Rows = model.Rows
+    }
+    updateState, Cmd.none
 
 open Feliz
 
@@ -33,15 +35,19 @@ let bottomKeyboardChars = [
     "enter"; "z"; "x"; "c"; "v"; "b"; "n"; "m"; "delete"
 ]
 
-let view model dispatch =
+let view (model: Model) dispatch =
     Html.div [
-            prop.className "h-screen w-screen flex flex-col items-center justify-center"
+            prop.className "h-screen w-screen flex flex-col items-center justify-center min-w-[560px]"
             prop.children [
                 Html.div [
-                    prop.className "p-6 m-4"
                     prop.children [
-                        Tile.root model dispatch
+                        for row in model.Rows do
+                            Panel.root 0 row dispatch
                     ]
+                ]
+
+                Html.div [
+                    prop.className "m-4"
                 ]
                 Html.div [
                     prop.className ""

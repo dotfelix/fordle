@@ -11,6 +11,7 @@
         <None Include="paket.references" />
         <Compile Include="Components/Tile.fs" />
         <Compile Include="Components/Keyboard.fs" />
+        <Compile Include="Components/Panel.fs" />
         <Compile Include="Index.fs" />
         <Compile Include="App.fs" />
         <None Include="vite.config.mts" />
