@@ -1,12 +1,11 @@
 source https://api.nuget.org/v3/index.json
+framework: net8.0
+storage: none
 
-framework: netcore3.1, netstandard2.0, netstandard2.1
-storage:none
+nuget Expecto ~> 9
+nuget SAFE.Server ~> 5
+nuget SAFE.Client ~> 5
 
-nuget Fable.FontAwesome.Free
-nuget FSharp.Core
-nuget Fable.Core
-nuget Fable.Elmish.React
-nuget Fable.Elmish.Browser
-nuget Fable.Elmish.Debugger
-nuget Fable.Elmish.HMR
+nuget Fake.Core.Target ~> 5
+nuget Fake.IO.FileSystem ~> 5
+nuget Farmer ~> 1
