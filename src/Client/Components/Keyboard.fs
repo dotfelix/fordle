@@ -5,7 +5,10 @@ open Elmish
 
 type Model = string
 
-type Msg = KeyPressed of string
+type Msg =
+    | KeyPressed of string
+    | EnterPressed
+    | DeletePressed
 
 let init () = "", Cmd.none
 
