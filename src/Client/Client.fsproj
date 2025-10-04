@@ -9,6 +9,7 @@
         <None Include="tailwind.config.js" />
         <None Include="index.html" />
         <None Include="paket.references" />
+        <Compile Include="Global.fs" />
         <Compile Include="Components/Tile.fs" />
         <Compile Include="Components/Keyboard.fs" />
         <Compile Include="Components/Panel.fs" />

@@ -7,5 +7,5 @@
 }
 
 .tile-default {
-    @apply inline-flex items-center justify-center outline outline-2 outline-gray-200 uppercase font-bold px-4 py-2 text-3xl w-14 h-14 box-border;
+    @apply w-16 h-16 flex items-center justify-center font-bold text-3xl outline outline-2 outline-gray-200 uppercase;
 }
